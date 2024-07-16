@@ -1,9 +1,16 @@
-#include "so_long.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   picture_handler.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: madao-da <madao-da@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/16 15:04:53 by madao-da          #+#    #+#             */
+/*   Updated: 2024/07/16 15:04:54 by madao-da         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void	ft_create_images(t_game *game);
-void	ft_open_exit(t_game *game, int pixel);
-void	ft_draw_map(t_game *game, int x, int y);
-void	ft_clear_images(t_game *game);
+#include "so_long.h"
 
 void	ft_create_images(t_game *game)
 {

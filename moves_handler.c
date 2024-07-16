@@ -1,10 +1,16 @@
-#include "so_long.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   moves_handler.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: madao-da <madao-da@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/16 15:04:47 by madao-da          #+#    #+#             */
+/*   Updated: 2024/07/16 15:04:48 by madao-da         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void	ft_move(int key, t_game *game);
-void	ft_move_up(t_game *game);
-void	ft_move_down(t_game *game);
-void	ft_move_right(t_game *game);
-void	ft_move_left(t_game *game);
+#include "so_long.h"
 
 void	ft_move(int key, t_game *game)
 {

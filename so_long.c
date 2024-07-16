@@ -1,36 +1,35 @@
-#include "so_long.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: madao-da <madao-da@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/16 15:04:58 by madao-da          #+#    #+#             */
+/*   Updated: 2024/07/16 16:22:13 by madao-da         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int	ft_render(t_game *game);
-void	ft_check_winner(t_game *game);
-int	ft_key_press(int key, t_game *game);
-int	ft_press_x(t_game *game);
-int	ft_count_numbers(int n);
-char	*ft_itoa(int n);
+#include "so_long.h"
 
 int	main(int argc, char **argv)
 {
 	t_game	game;
 
-	if (argc != 2) // Must be ./so_long map_file.ber
-	{
-		printf("ERROR! Must only have the program name and the map file,\n");
-		return (1);
-	}
-	if (is_ber(argv[1]) == 0) // Check if the map_file is of type ".ber"
-	{
-		printf("ERROR! The map file is not of type .ber\n");
-		return (2);
-	}
-	if (ft_check_errors(&game, argv[1]) == 0)
-		return (3);
-	game.mlx = mlx_init();
+	if (argc != 2) // Must be "./so_long map_file.ber"
+		return (printf("Error\nThe program must be parsed as './so_long <map_name>.ber'.\n"));
+	if (is_map_ber(argv[1]) == false) // Check if the map_file is of type ".ber"
+		return (printf("Error\nThe map file is not of type '.ber'.\n"));
+	if (ft_check_errors(&game, argv[1]) == 0) // Check what's inside the map file
+		exit(EXIT_FAILURE); // Check if its supose to exit or just return 1
+	game.mlx = mlx_init(); //TODO: PERCEBER E COMENTAR
 	if (game.mlx == NULL)
 	{
-		printf("ERROR! Missing graphical interface.\n");
+		printf("Error\nMissing graphical interface.\n");
 		free_map(&game);
 		return (4);
 	}
-	game.win = mlx_new_window(game.mlx, game.map.width * PIXEL, game.map.height * PIXEL, "so_tiny");
+	game.win = mlx_new_window(game.mlx, game.map.x * PIXEL, game.map.y * PIXEL, "so_tiny");
 	mlx_expose_hook(game.win, ft_render, &game);
 	mlx_key_hook(game.win, ft_key_press, &game);
 	mlx_hook(game.win, 17, 1L << 2, ft_press_x, &game);

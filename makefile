@@ -11,7 +11,6 @@ MLX_FLAGS	=	-Lmlx -lmlx -L/usr/lib/X11 -lXext -lX11
 RM		=	rm -f
 
 # Includes
-
 LIBFT		= libft/libft.a
 
 # Source files
