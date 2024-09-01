@@ -12,34 +12,6 @@
 
 #include "get_next_line.h"
 
-char	*ft_save_in_temp(char *buffer, char *str)
-{
-	int			i;
-	int			j;
-	int			lenght;
-	char		*result;
-
-	if (!buffer)
-		return (NULL);
-	if (!str)
-		str = ft_memalloc(1, sizeof(char));
-	lenght = ft_strlen(buffer) + ft_strlen(str);
-	result = ft_memalloc((lenght + 1), sizeof(char));
-	j = 0;
-	i = 0;
-	while (str[i])
-	{
-		result[i] = str[i];
-		i++;
-	}
-	while (buffer[j])
-	{
-		result[i++] = buffer[j++];
-	}
-	free(str);
-	return (result);
-}
-
 int	ft_check_newline(char *str)
 {
 	int		i;
@@ -89,4 +61,32 @@ char	*get_next_line(int fd)
 	str = ft_broom(str);
 	free(buffer);
 	return (final);
+}
+
+char	*ft_save_in_temp(char *buffer, char *str)
+{
+	int			i;
+	int			j;
+	int			lenght;
+	char		*result;
+
+	if (!buffer)
+		return (NULL);
+	if (!str)
+		str = ft_memalloc(1, sizeof(char));
+	lenght = ft_strlen(buffer) + ft_strlen(str);
+	result = ft_memalloc((lenght + 1), sizeof(char));
+	j = 0;
+	i = 0;
+	while (str[i])
+	{
+		result[i] = str[i];
+		i++;
+	}
+	while (buffer[j])
+	{
+		result[i++] = buffer[j++];
+	}
+	free(str);
+	return (result);
 }

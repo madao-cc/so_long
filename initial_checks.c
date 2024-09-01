@@ -64,32 +64,30 @@ int	check_min_height(t_game *game)
 	return (1);
 }
 
-char	*ft_strjoin_gnl(char *s1, char *s2)
+char	*ft_strjoin_gnl(char *tmp, char *line)
 {
 	char	*str;
 	size_t	i;
 	size_t	j;
 
-	if (!s1 || !s2)
+	if (!tmp || !line)
 		return (NULL);
-	printf("|%s|\n", s1);
-	printf("|%s|\n", s2);
-	if (s1[0] == '\0')
-		str = malloc(ft_strlen(s2) + 1);
+	if (tmp[0] == '\0')
+		str = malloc(ft_strlen(line) + 1);
 	else
-		str = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+		str = malloc(ft_strlen(tmp) + ft_strlen(line) + 1);
 	if (!str)
 		return (0);
 	i = 0;
 	j = 0;
-	while (s1[i])
+	while (tmp[i])
 	{
-		str[i] = s1[i];
+		str[i] = tmp[i];
 		i++;
 	}
-	while (s2[j])
-		str[i++] = s2[j++];
+	while (line[j])
+		str[i++] = line[j++];
 	str[i] = '\0';
-	free(s1);
+	free(tmp);
 	return (str);
 }

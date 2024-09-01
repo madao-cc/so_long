@@ -72,7 +72,7 @@ int		ft_key_press(int key, t_game *game);
 int		ft_press_x(t_game *game);
 
 /*	check_map_file_pt2.c	*/
-char	*ft_strjoin_gnl(char *s1, char *s2);
+char	*ft_strjoin_gnl(char *tmp, char *line);
 int		ft_check_rectangle(t_game *game);
 int		ft_check_walls(t_game *game);
 int		first_and_last_walls(t_game *game, int y, int x);

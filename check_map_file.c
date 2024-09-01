@@ -62,12 +62,14 @@ int	copy_map_content(t_game *game, char *map_file)
 
 	i = 0;
 	fd = open(map_file, O_RDONLY);
-	tmp = malloc(sizeof(1));
+	tmp = malloc(sizeof(char) * 1);
+	if (!tmp)
+		return (0);
 	tmp[0] = '\0';
 	while (i < game->map.height)
 	{
-		line = get_next_line(fd);
 		printf("%d\n", i);
+		line = get_next_line(fd);
 		tmp = ft_strjoin_gnl(tmp, line);
 		free(line);
 		i++;
@@ -81,6 +83,7 @@ int	copy_map_content(t_game *game, char *map_file)
 	ft_get_map_width(game, tmp);
 	ft_write_map(game, tmp);
 	free(tmp);
+	close(fd);
 	return (1);
 }
 

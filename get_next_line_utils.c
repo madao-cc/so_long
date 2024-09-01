@@ -50,7 +50,7 @@ char	*ft_strdup(char *str)
 	i = 0;
 	while (str[i] && str[i] != '\n')
 		i++;
-	result = ft_memalloc((i + 1), sizeof(char));
+	result = calloc(i + 2, sizeof(char));
 	i = 0;
 	while (str[i] && str[i] != '\n')
 	{
@@ -77,7 +77,7 @@ char	*ft_broom(char *str)
 	i = 0;
 	while (str[i] != '\0' && str[i] != '\n')
 		i++;
-	result = ft_memalloc(((length - i) + 1), sizeof(char));
+	result = calloc(length - i + 1, sizeof(char));
 	j = 0;
 	while (str[i])
 	{
